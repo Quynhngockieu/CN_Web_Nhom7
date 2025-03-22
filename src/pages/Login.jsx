@@ -16,7 +16,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5001/users");
+      const response = await fetch("/api/users");
       if (!response.ok) {
         throw new Error(`Lỗi server: ${response.status}`);
       }
@@ -25,17 +25,16 @@ function Login() {
       //Tìm user có username khớp
       const user = users.find((u) => u.username === formData.username);
 
-      if (!users) {
+      if (!user) {
         alert("Tài khoản không tồn tại!");
         return;
       }
 
-      if (user.password !== formData.password) {
+      if (user.password.trim() !== formData.password.trim()) {
         alert("Username hoặc password không đúng");
         return;
       }
 
-      alert("Đăng nhập thành công!");
       navigate("/"); // Điều hướng về trang chủ
     } catch (error) {
       alert("Lỗi kết nối đến server!");

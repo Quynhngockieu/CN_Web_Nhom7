@@ -51,7 +51,7 @@ function Header({ CartCount = 0 }) {
           <Link to="/login" className="text-decoration-none">
             <Infor
               icon="bi bi-emoji-wink"
-              name="Tài khoản"
+              name="Đăng nhập"
               color={{ color: "#81818a" }}
             />
           </Link>
@@ -72,7 +72,7 @@ function Header({ CartCount = 0 }) {
           <Link to="/login" className="text-decoration-none">
             <Infor
               icon="bi bi-emoji-wink"
-              name="Tài khoản"
+              name="Đăng nhập"
               color={{ color: "#81818a" }}
             />
           </Link>

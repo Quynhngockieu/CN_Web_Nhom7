@@ -1,28 +1,10 @@
 {
   "users": [
     {
-      "id": "fcc2",
+      "id": 1,
       "username": "quynhngockieu",
       "email": "quynhngockieu1110@gmail.com",
       "password": "Qnk@111004"
-    },
-    {
-      "id": "84be",
-      "username": "chuhaidang",
-      "email": "chuhaidang@gmail.com",
-      "password": "Abc@1234"
-    },
-    {
-      "id": "2826",
-      "username": "chuhaidang",
-      "email": "haidang@gmail.com",
-      "password": "Bcd@1234"
-    },
-    {
-      "id": "486b",
-      "username": "vanly",
-      "email": "bhvly@gmail.com",
-      "password": "bhvl@567"
     }
   ],
   "books": [
