@@ -1,10 +1,67 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "Abc@123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
       "username": "quynhngockieu",
       "email": "quynhngockieu1110@gmail.com",
-      "password": "Qnk@111004"
+      "password": "Qnk@111004",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "username": "nguyenvan",
+      "email": "nguyenvan@gmail.com",
+      "password": "Asdfghjkl@123",
+      "role": "user"
+    }
+  ],
+  "categories": [
+    {
+      "id": 316,
+      "name": "Sách tiếng Việt",
+      "is_leaf": false
+    },
+    {
+      "id": 385,
+      "name": "Sách kỹ năng làm việc",
+      "is_leaf": true
+    },
+    {
+      "id": 9,
+      "name": "Fiction - Literature",
+      "is_leaf": false
+    },
+    {
+      "id": 14896,
+      "name": "Grammar, vocabulary & skills",
+      "is_leaf": true
+    },
+    {
+      "id": 320,
+      "name": "English Books",
+      "is_leaf": false
+    },
+    {
+      "id": 871,
+      "name": "Sách tư duy - Kỹ năng sống",
+      "is_leaf": true
+    },
+    {
+      "id": 842,
+      "name": "Tác phẩm kinh điển",
+      "is_leaf": true
+    },
+    {
+      "id": 845,
+      "name": "Truyện ngắn - Tản văn - Tạp Văn",
+      "is_leaf": true
     }
   ],
   "books": [

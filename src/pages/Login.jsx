@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./FormStyle.css";
+import { getCurrentUser } from "../components/AuthService";
 
 function Login() {
   const navigate = useNavigate();
@@ -16,13 +17,12 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/users");
+      const response = await fetch("http://localhost:5001/users");
       if (!response.ok) {
         throw new Error(`Lỗi server: ${response.status}`);
       }
       const users = await response.json();
 
-      //Tìm user có username khớp
       const user = users.find((u) => u.username === formData.username);
 
       if (!user) {
@@ -35,7 +35,13 @@ function Login() {
         return;
       }
 
-      navigate("/"); // Điều hướng về trang chủ
+      localStorage.setItem("user", JSON.stringify(user)); // Lưu user vào localStorage
+      alert("Đăng nhập thành công!");
+      if (user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       alert("Lỗi kết nối đến server!");
     }

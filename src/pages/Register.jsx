@@ -42,32 +42,33 @@ function Register() {
         formData.password
       )
     ) {
-      alert("Mật khẩu chưa đủ mạnh.");
+      alert(
+        "Mật khẩu chưa đủ mạnh. Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt."
+      );
     }
+
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch("http://localhost:5001/users");
+      const users = await response.json();
+
+      if (users.some((user) => user.username === formData.username)) {
+        alert("Username đã tồn tại!");
+        return;
+      }
+
+      await fetch("http://localhost:5001/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: formData.username,
           email: formData.email,
           password: formData.password,
+          role: "user", // Mặc định tài khoản mới là user
         }),
       });
 
-      if (response.ok) {
-        alert("Đăng ký thành công!");
-        setFormData({
-          username: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
-        //sang trang login
-        navigate("/login");
-      } else {
-        alert("Đăng ký thất bại!");
-      }
+      alert("Đăng ký thành công!");
+      navigate("/login");
     } catch (error) {
       alert("Lỗi kết nối đến server!");
     }

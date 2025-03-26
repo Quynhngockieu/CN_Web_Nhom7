@@ -1,52 +1,85 @@
 .cus-p p {
-    margin-bottom: 6px; 
-    font-size: 13px;
-    color: rgb(144, 143, 143);
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: rgb(144, 143, 143);
 }
-.cus-p h5{
-    font-size: 18px;
-}
-
-.cus-p #favicon img{
-    width: 30px;
-    margin-right: 8px;
+.cus-p h5 {
+  font-size: 18px;
 }
 
-.BookDetail{
-    display: flex;
+.cus-p #favicon img {
+  width: 30px;
+  margin-right: 8px;
 }
 
-.BookDetail #img{
-    order: 2;
+.BookDetail {
+  display: flex;
 }
 
-.BookDetail #name{
-    order: 3;
+.BookDetail #img {
+  order: 2;
 }
 
-.BookDetail #features{
-    order: 4;
+.BookDetail #name {
+  order: 3;
 }
 
-.BookDetail #pay{
-    order: 1;
+.BookDetail #features {
+  order: 4;
 }
 
-.BookDetail #infor{
-    order: 5;
+.BookDetail #pay {
+  order: 1;
 }
 
-.BookDetail #describ{
-    order: 6;
+.BookDetail #infor {
+  order: 5;
 }
 
-.cart:hover{
-    background: rgb(187, 224, 251) !important;
+.BookDetail #describ {
+  order: 6;
 }
 
-#icon:hover{
-    background: rgb(234, 234, 234) !important;
+.cart:hover {
+  background: rgb(187, 224, 251) !important;
 }
 
+#icon:hover {
+  background: rgb(234, 234, 234) !important;
+}
 
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
 
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-logout {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-login,
+.btn-register {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
