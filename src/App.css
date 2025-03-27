@@ -1,52 +1,86 @@
 .cus-p p {
-    margin-bottom: 6px; 
+    margin-bottom: 6px;
     font-size: 13px;
     color: rgb(144, 143, 143);
 }
-.cus-p h5{
+
+.cus-p h5 {
     font-size: 18px;
 }
 
-.cus-p #favicon img{
+.cus-p #favicon img {
     width: 30px;
     margin-right: 8px;
 }
 
-.BookDetail{
+.BookDetail {
     display: flex;
 }
 
-.BookDetail #img{
+.BookDetail #img {
     order: 2;
 }
 
-.BookDetail #name{
+.BookDetail #name {
     order: 3;
 }
 
-.BookDetail #features{
+.BookDetail #features {
     order: 4;
 }
 
-.BookDetail #pay{
+.BookDetail #pay {
     order: 1;
 }
 
-.BookDetail #infor{
+.BookDetail #infor {
     order: 5;
 }
 
-.BookDetail #describ{
+.BookDetail #describ {
     order: 6;
 }
 
-.cart:hover{
+.cart:hover {
     background: rgb(187, 224, 251) !important;
 }
 
-#icon:hover{
+#icon:hover {
     background: rgb(234, 234, 234) !important;
 }
 
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
 
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.btn-logout {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-login,
+.btn-register {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}

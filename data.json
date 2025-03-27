@@ -1,21 +1,75 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "quynhngockieu",
-      "email": "quynhngockieu1110@gmail.com",
-      "password": "Qnk@111004"
+      "id": "11",
+      "username": "admin",
+      "email": "admin@gmail.com.vn",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "6a2b",
+      "username": "donghoannguyen",
+      "email": "donghoangnguyen2004@gmail.com.vn"
+    },
+    {
+      "id": "47bb",
+      "username": "test1",
+      "email": "donghoangnguyen2004@gmail.com.vn",
+      "password": "123456",
+      "role": "user"
+    }
+  ],
+  "categories": [
+    {
+      "id": "316",
+      "name": "Sách tiếng Việt",
+      "is_leaf": false
+    },
+    {
+      "id": "385",
+      "name": "Sách kỹ năng làm việc",
+      "is_leaf": true
+    },
+    {
+      "id": "9",
+      "name": "Fiction - Literature",
+      "is_leaf": false
+    },
+    {
+      "id": "14896",
+      "name": "Grammar, vocabulary & skills",
+      "is_leaf": true
+    },
+    {
+      "id": "320",
+      "name": "English Books",
+      "is_leaf": false
+    },
+    {
+      "id": "871",
+      "name": "Sách tư duy - Kỹ năng sống",
+      "is_leaf": true
+    },
+    {
+      "id": "842",
+      "name": "Tác phẩm kinh điển",
+      "is_leaf": true
+    },
+    {
+      "id": "845",
+      "name": "Truyện ngắn - Tản văn - Tạp Văn",
+      "is_leaf": true
     }
   ],
   "books": [
     {
       "authors": [
-        {
-          "id": 13992,
-          "name": "Robin Sharma",
-          "slug": "robin-sharma"
-        }
-      ],
+      {
+        "id": 13992,
+        "name": "Robin Sharma",
+        "slug": "robin-sharma"
+      }],
       "book_cover": null,
       "categories": {
         "id": 316,

@@ -22,7 +22,6 @@ function Login() {
       }
       const users = await response.json();
 
-      //Tìm user có username khớp
       const user = users.find((u) => u.username === formData.username);
 
       if (!user) {
@@ -30,12 +29,19 @@ function Login() {
         return;
       }
 
-      if (user.password.trim() !== formData.password.trim()) {
+      if (user.password.trim() !== formData.password) {
         alert("Username hoặc password không đúng");
         return;
       }
 
-      navigate("/"); // Điều hướng về trang chủ
+      // 🔹 Lưu thông tin user vào localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+
+      if (user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       alert("Lỗi kết nối đến server!");
     }

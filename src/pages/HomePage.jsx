@@ -1,11 +1,37 @@
+import React, { useEffect, useState } from "react";
 import Book from "../components/Book";
 import { books } from "../../data.json";
 import CardL from "../components/Card_HP";
 import BreadCrumb from "../components/BreadCrumb";
 import CusPagination from "../components/CusPagination";
 import "../App.css";
+import { isAdmin } from "../components/AuthService";
 
 function HomePage() {
+  const [admin, setAdmin] = useState(false);
+  const [books, setBooks] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setAdmin(isAdmin());
+    fetch("/api/books")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Lỗi Server: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => setBooks(data))
+      .catch((error) => {
+        console.error("Lỗi khi lấy danh sách sách:", error);
+        setError(error.message);
+      });
+  }, []);
+
+  if (error) {
+    return <div className="alert alert-danger">Lỗi: {error}</div>;
+  }
+
   return (
     <div className="container">
       <BreadCrumb />
