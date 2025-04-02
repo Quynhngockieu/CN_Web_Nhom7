@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useAdminCRUD from "./AdminCRUD";
+import useAdminCRUD from "./AdminCRUD"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Table, Button, Form, Nav, Navbar, Card } from "react-bootstrap";
 import "./AdminDashboard.css";
@@ -14,6 +14,17 @@ const AdminDashboard = () => {
   const usersCRUD = useAdminCRUD("users", setShowForm);
   const booksCRUD = useAdminCRUD("books", setShowForm);
   const categoriesCRUD = useAdminCRUD("categories", setShowForm);
+  
+  const handleEditItem = (book) => {
+    booksCRUD.setFormData({
+      name: book.name,
+      author: book.authors?.map(author => author.name).join(", ") || book.author || "",
+      price: book.list_price || book.price || "",
+      category: book.categories?.name || book.category || "",
+    });
+    booksCRUD.setEditingId(book.id);
+    setShowForm(true);
+  };
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -33,7 +44,7 @@ const AdminDashboard = () => {
 
   return (
     <Container fluid className="admin-dashboard">
-      {/* Thanh điều hướng trên cùng */}
+      {/* Navbar */}
       <Navbar bg="primary" variant="dark" expand="lg" fixed="top" className="shadow-sm p-3">
         <Container fluid>
           <Row className="w-100 align-items-center">
@@ -54,10 +65,8 @@ const AdminDashboard = () => {
         </Container>
       </Navbar>
 
-
-
       <Row>
-        {/* Sidebar - Gần với thanh trên hơn */}
+        {/* Sidebar */}
         <Col md={2} className="bg-dark text-white sidebar pt-3">
           <Nav className="flex-column p-2">
             <Nav.Link className={`sidebar-item ${activeTab === "users" ? "active bg-primary text-white rounded-2 mt-1" : ""}`} onClick={() => setActiveTab("users")}>
@@ -70,12 +79,12 @@ const AdminDashboard = () => {
               🏷️ Quản lý Categories
             </Nav.Link>
           </Nav>
-
         </Col>
 
-        {/* Nội dung chính */}
+        {/* Main Content */}
         <Col md={10} className="content">
           <Card className="shadow-sm p-4">
+            {/* Users Section */}
             {activeTab === "users" && (
               <>
                 <h3 className="text-primary">Danh sách Users</h3>
@@ -142,6 +151,7 @@ const AdminDashboard = () => {
               </>
             )}
 
+            {/* Books Section */}
             {activeTab === "books" && (
               <>
                 <h3 className="text-primary">Danh sách Books</h3>
@@ -154,9 +164,9 @@ const AdminDashboard = () => {
                       <Col>
                         <Form.Control
                           type="text"
-                          name="title"
+                          name="name"
                           placeholder="Tên sách"
-                          value={booksCRUD.formData.title || ""}
+                          value={booksCRUD.formData.name || ""}
                           onChange={booksCRUD.handleInputChange}
                         />
                       </Col>
@@ -189,9 +199,9 @@ const AdminDashboard = () => {
                         </Form.Select>
                       </Col>
                       <Col>
-                        <Button variant="primary" onClick={booksCRUD.editingId ? booksCRUD.updateItem : booksCRUD.addItem}>
-                          {booksCRUD.editingId ? "Cập nhật" : "Thêm"}
-                        </Button>
+                      <Button variant="primary" onClick={booksCRUD.editingId ? booksCRUD.updateItem : booksCRUD.addItem}>
+                        {booksCRUD.editingId ? "Cập nhật" : "Thêm"}
+                      </Button>
                       </Col>
                     </Row>
                   </Form>
@@ -212,12 +222,12 @@ const AdminDashboard = () => {
                     {booksCRUD.data.map((book, index) => (
                       <tr key={book.id}>
                         <td>{index + 1}</td>
-                        <td>{book.name}</td>
-                        <td>{book.author}</td>
-                        <td>{book.list_price} VND</td>
-                        <td>{book.categories.name}</td>
+                        <td>{book.name || "Không có tên"}</td>
+                        <td>{book.authors?.map((author) => author.name).join(", ") || book.author || "Không có tác giả"}</td>
+                        <td>{book.list_price ? `${book.list_price} VND` : book.price ? `${book.price} VND` : "Không có giá"}</td>
+                        <td>{book.categories?.name || book.category || "Không có danh mục"}</td>
                         <td>
-                          <Button variant="warning" className="me-2" onClick={() => booksCRUD.editItem(book.id)}>
+                          <Button variant="warning" className="me-2" onClick={() => handleEditItem(book)}>
                             ✏️ Sửa
                           </Button>
                           <Button variant="danger" onClick={() => booksCRUD.deleteItem(book.id)}>
@@ -231,6 +241,7 @@ const AdminDashboard = () => {
               </>
             )}
 
+            {/* Categories Section */}
             {activeTab === "categories" && (
               <>
                 <h3 className="text-primary">Danh sách Categories</h3>
@@ -287,7 +298,6 @@ const AdminDashboard = () => {
             )}
           </Card>
         </Col>
-
       </Row>
     </Container>
   );

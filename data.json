@@ -18,6 +18,11 @@
       "email": "donghoangnguyen2004@gmail.com.vn",
       "password": "123456",
       "role": "user"
+    },
+    {
+      "id": "d454",
+      "username": "test2",
+      "email": "donghoangnguyen2004@gmail.com.vn"
     }
   ],
   "categories": [
@@ -42,9 +47,9 @@
       "is_leaf": true
     },
     {
-      "id": "320",
       "name": "English Books",
-      "is_leaf": false
+      "id": "320",
+      "is_leaf": true
     },
     {
       "id": "871",
@@ -65,11 +70,12 @@
   "books": [
     {
       "authors": [
-      {
-        "id": 13992,
-        "name": "Robin Sharma",
-        "slug": "robin-sharma"
-      }],
+        {
+          "id": 13992,
+          "name": "Robin Sharma",
+          "slug": "robin-sharma"
+        }
+      ],
       "book_cover": null,
       "categories": {
         "id": 316,
