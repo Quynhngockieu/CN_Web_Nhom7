@@ -43,6 +43,7 @@ function Register() {
       )
     ) {
       alert("Mật khẩu chưa đủ mạnh. Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.");
+      return;
     }
     try {
       const response = await fetch("/api/users");
@@ -50,6 +51,11 @@ function Register() {
 
       if (users.some((user) => user.username === formData.username)) {
         alert("Username đã tồn tại!");
+        return;
+      }
+
+      if (users.some((user) => user.email === formData.email)) {
+        alert("Email đã tồn tại!");
         return;
       }
 

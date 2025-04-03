@@ -4,9 +4,6 @@ import HomePage from "./pages/HomePage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import BookDetail from "./pages/BookDetail";
-import ManageBooks from "./pages/admin/ManageBooks";
-import ManageUsers from "./pages/admin/ManageUsers";
-import ManageCategories from "./pages/admin/ManageCategories";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AuthLayout from "./AuthLayout";
 import MainLayout from "./MainLayout";
@@ -27,9 +24,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/books" element={<ManageBooks />} />
-          <Route path="/admin/users" element={<ManageUsers />} />
-          <Route path="/admin/categories" element={<ManageCategories />} />
         </Route>
       </Routes>
   );
